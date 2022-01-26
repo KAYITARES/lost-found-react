@@ -20,6 +20,7 @@ body{
     width:100%;
     background-attachment: fixed;
     object-fit: cover;
+    font-family: 'Lato', sans-serif;
     
 
 }
@@ -38,6 +39,7 @@ body{
     object-fit: cover;
     
 }
+
 .main-nav-right{
     width:100%;
 }
@@ -67,12 +69,35 @@ body{
     
 
 }
-ul li a:hover{
-    color:rgb(37, 1, 1);
+ul li a:hover,.navbar-link ul li a:hover{
+    color:rgb(22, 1, 1);
     font-weight: bold;
+    background-color: green;
+    padding: 20px;
 }
 li #google_translate_element{
     margin-right:100px;
     
 }
 
+.navbar-link{
+    background-color: #646060;
+    text-align: center;
+    
+}
+.navbar-link ul{
+    padding:20px;
+    list-style-type: none;  
+}
+.navbar-link ul li{
+    display: inline-block;
+    
+}
+.navbar-link ul li a{
+    color:white;
+    margin-left:90px;
+    font-size: 18px;
+    font-weight: bold;
+   
+   
+}

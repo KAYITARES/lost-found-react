@@ -1,7 +1,7 @@
 import './HomeLayout.css'
 import React from 'react';
-import Header from './Header'
-
+import Header from './Header';
+import Nav from './navbar';
 const HomeLayout=({children})=>{
     return(
         <div className='home-container'>
@@ -9,6 +9,7 @@ const HomeLayout=({children})=>{
            
             <div style={{minHeight:"100vh"}}>
             <Header/>
+            <Nav/>
                 {children}
             </div>
 

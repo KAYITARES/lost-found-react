@@ -3,6 +3,12 @@ import "antd/dist/antd.css";
 import HomeLayout from "../components/HomeLayout";
 
 const Home = () => {
-  return <HomeLayout></HomeLayout>;
+  return (
+    
+  <HomeLayout>
+
+  </HomeLayout>
+  )
+  ;
 };
 export default Home;
