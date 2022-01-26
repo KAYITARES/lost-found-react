@@ -54,7 +54,7 @@ body{
 .main-nav-right ul li{
     float:left;
     /* padding-right:40px; */
-    margin-right:30px;
+    margin-right:10px;
     margin-top:30px;
     font-weight: bold;
     
@@ -65,15 +65,16 @@ body{
     text-decoration:none;
     text-align: center;
     color:#646060;
+    padding: 20px;
     
     
 
 }
 ul li a:hover,.navbar-link ul li a:hover{
-    color:rgb(22, 1, 1);
+   color:#fff;
     font-weight: bold;
     background-color: green;
-    padding: 20px;
+    
 }
 li #google_translate_element{
     margin-right:100px;
@@ -95,9 +96,58 @@ li #google_translate_element{
 }
 .navbar-link ul li a{
     color:white;
-    margin-left:90px;
-    font-size: 18px;
+    margin-left:70px;
+    font-size: 16px;
     font-weight: bold;
+    padding: 20px;
    
    
+}
+.text{
+    color:#fff;
+   margin-top:10%;
+   margin-left: 30%;
+
+ 
+
+    
+   
+    
+}
+.text p{
+    width:600px;
+    font-size:18px;
+    line-height:25px;
+    text-align: center;
+    margin-left: 30px;
+    
+    
+   
+}
+h1{
+    
+    line-height: 30px;
+   
+    color:#fff;
+    font-weight:bold;
+    font-size:48px;
+    width: 753px;
+    text-shadow: 3px  4px 5px black;
+    text-transform:uppercase;
+    letter-spacing: 4px;
+    
+
+}
+button{
+    width:220px;
+    background-color: #646060;
+    padding:8px;
+    color:whitesmoke;
+    font-size: 24px;
+    box-shadow: 3px 4px 5px black;
+    margin-left:25%;
+}
+button:hover{
+    background-color: green;
+    
 }
