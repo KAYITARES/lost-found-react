@@ -1,14 +1,17 @@
 import React from 'react';
 import './HomeLayout.css'
 
-const Nav=()=>{
+const Nav=(props)=>{
     return (
         <div className="navbar">
             <div className='navbar-link'>
                 <ul>
-                    <li><a>HOME</a></li>
-                    <li><a>SIGN-IN</a></li>
-                    <li><a>SIGN-UP</a></li>
+                    <li><a>{props.home}</a></li>
+                    <li><a>{props.signIn}</a></li>
+                    <li><a>{props.signOut}</a></li>
+                    <li><a>{props.Home}</a></li>
+                    <li><a>{props.registerFoundDocument}</a></li>
+                    <li><a>{props.allFoundDocument}</a></li>
                 </ul>
             </div>
 

@@ -1,11 +1,13 @@
 import React from "react";
 import "antd/dist/antd.css";
 import HomeLayout from "../components/HomeLayout";
+import Nav from '../components/navbar'
 
 const Home = () => {
   return (
     
   <HomeLayout>
+     <Nav home="HOME" signIn="SIGN-IN" signOut="SIGN-OUT"/>
     <div className="text">
     <h1>
     Lost  &  Found  Document.
