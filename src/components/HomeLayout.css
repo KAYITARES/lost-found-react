@@ -31,7 +31,7 @@ body{
     
 }
 .logo-img{
-    margin-left:15%;
+    margin-left:10%;
 }
 .logo-img img{
     height:100px;
@@ -96,7 +96,7 @@ li #google_translate_element{
 }
 .navbar-link ul li a{
     color:white;
-    margin-left:70px;
+    margin:0 8px;
     font-size: 16px;
     font-weight: bold;
     padding: 20px;
