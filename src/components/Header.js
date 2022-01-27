@@ -4,8 +4,22 @@ import 'antd/dist/antd.css';
 import logo from "../assets/img/logo.png";
 
 
+//const Header=()=>{
+    // 
+    
+
+    // 
+    // 
+    // return(
+    //     
+    //    
+            
+
 const Header=()=>{
+  
     return(
+       
+        
         <div className='header'>
             <div className='main-nav'>
             <div className='logo-img'>
@@ -31,6 +45,7 @@ const Header=()=>{
             
 
         </div>
+        
 
     );
 }
