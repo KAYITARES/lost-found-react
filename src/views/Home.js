@@ -7,7 +7,7 @@ const Home = () => {
   return (
     
   <HomeLayout>
-     <Nav home="HOME" signIn="SIGN-IN" signOut="SIGN-OUT"/>
+     <Nav home="HOME" signIn="SIGN-IN" signUp="SIGN-UP"/>
     <div className="text">
     <h1>
     Lost  &  Found  Document.
