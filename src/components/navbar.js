@@ -8,7 +8,7 @@ const Nav = (props) => {
   const onFinish = (values) => {
     console.log(values);
     localStorage.setItem("userLogedIn", true);
-    navigate("/UserDashboard");
+    navigate("/user");
   };
   const navigate = useNavigate();
   return (
