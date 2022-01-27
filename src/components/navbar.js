@@ -11,6 +11,8 @@ const Nav=(props)=>{
                     <li><a>{props.allFoundDocument}</a></li>
                     <li><a>{props.allLostDocument}</a></li>
                     <li><a>{props.allApprovedDocument}</a></li>
+               
+
                 
                 </>):(
                     <>
