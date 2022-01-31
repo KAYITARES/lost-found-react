@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./HomeLayout.css";
 import { Modal, Form, Input, Button, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
-import { PhoneOutlined, LockOutlined } from "@ant-design/icons";
+import logo from '../assets/img/logo.png'
+import { PhoneOutlined, LockOutlined,UserOutlined } from "@ant-design/icons";
 
 const Nav = (props) => {
   const [visible, setVisible] = useState(false);
@@ -19,15 +20,20 @@ const Nav = (props) => {
         width="25%"
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
+        footer={null}
       >
+          <a href="/">
+                <img src={logo} style={{width:"120px",marginBottom:"20px"}}/>
+
+                </a>
         <h2>
-          <center><b>Signin Form</b></center>
-        </h2><br/>
+         <b> <UserOutlined className="site-form-item-icon" style={{padding:"5px",color:"skyblue"}} />Signin Form</b>
+        </h2>
         <Form   name="normal_login" className="login-form"
       initialValues={{
         remember: true,
       }} onFinish={onFinish}>
-          <Form.Item name="phone" rules={[{ required: "true", type: "email" }]}>
+          <Form.Item name="phone" rules={[{ required: "true", type: "tel" }]}>
             <Input
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Phone Number"
