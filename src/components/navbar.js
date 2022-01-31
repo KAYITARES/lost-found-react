@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
-import { Modal, Form, Input, Button } from "antd";
+import { Modal, Form, Input,Upload, Button } from "antd";
+import {UploadOutlined} from '@ant-design/icons'
 import { useNavigate } from "react-router-dom";
 
 const Nav = (props) => {
   const [visible, setVisible] = useState(false);
+  const[registerFoundVisible,registerFoundsetVisible]=useState(false);
   const onFinish = (values) => {
     console.log(values);
     localStorage.setItem("userLogedIn", true);
     navigate("/user");
+    localStorage.setItem("registerFoundDoc",true)
+    navigate("/founder")
+   
+   
   };
   const navigate = useNavigate();
   return (
@@ -40,6 +46,41 @@ const Nav = (props) => {
           </Button>
         </Form>
       </Modal>
+
+      <Modal
+        visible={registerFoundVisible}
+        width="40%"
+        onOk={() =>registerFoundsetVisible(false)}
+        onCancel={() =>registerFoundsetVisible(false)}
+      >
+        <h1>register Form</h1>
+        <Form onFinish={onFinish}>
+          <Form.Item
+            label="IDofthedocument"
+            name="IDofthedocument"
+            rules={[{ required: "true", type: "IDofthedocument" }]}
+          >
+            <Input type="IDoftheDocument" />
+          </Form.Item>
+          <Form.Item
+            label="Description"
+            name="Description"
+            rules={[{ required: "true", type: "Description" }]}
+          >
+            <Input type="Description" />
+          </Form.Item>
+          <Form.Item
+            label="PictureofDocument"
+            name="PictureofDocument"
+            rules={[{ required: true }]}
+          >
+           <Upload><Button icon={<UploadOutlined/>}>Upload Image</Button></Upload>
+          </Form.Item>
+          <Button htmlType="submit" onClick={() => {}}>
+            Login
+          </Button>
+        </Form>
+        </Modal>
       <div className="navbar">
         <div className="navbar-link">
           <ul>
@@ -49,7 +90,7 @@ const Nav = (props) => {
                   <a>{props.Home}</a>
                 </li>
                 <li>
-                  <a>{props.registerFoundDocument}</a>
+                  <a href="#" onClick={() =>registerFoundsetVisible (true)} >{props.registerFoundDocument}</a>
                 </li>
                 <li>
                   <a>{props.allFoundDocument}</a>
