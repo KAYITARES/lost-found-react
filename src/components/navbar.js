@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
+
 import { Modal, Form, Input,Upload, Button } from "antd";
 import {UploadOutlined} from '@ant-design/icons'
+
+import { Modal, Form, Input, Button, Checkbox } from "antd";
+
 import { useNavigate } from "react-router-dom";
+import { PhoneOutlined, LockOutlined } from "@ant-design/icons";
 
 const Nav = (props) => {
   const [visible, setVisible] = useState(false);
@@ -21,29 +26,45 @@ const Nav = (props) => {
     <>
       <Modal
         visible={visible}
-        width="40%"
+        width="25%"
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
       >
-        <h1>Signin Form</h1>
-        <Form onFinish={onFinish}>
-          <Form.Item
-            label="email"
-            name="email"
-            rules={[{ required: "true", type: "email" }]}
-          >
-            <Input type="email" />
+        <h2>
+          <center><b>Signin Form</b></center>
+        </h2><br/>
+        <Form   name="normal_login" className="login-form"
+      initialValues={{
+        remember: true,
+      }} onFinish={onFinish}>
+          <Form.Item name="phone" rules={[{ required: "true", type: "email" }]}>
+            <Input
+              prefix={<PhoneOutlined className="site-form-item-icon" />}
+              placeholder="Phone Number"
+            />
           </Form.Item>
-          <Form.Item
-            label="password"
-            name="password"
-            rules={[{ required: true }]}
-          >
-            <Input type="password" />
+          <Form.Item name="password" rules={[{ required: true }]}>
+            <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
           </Form.Item>
-          <Button htmlType="submit" onClick={() => {}}>
-            Login
-          </Button>
+          <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <a className="login-form-forgot" href="">
+          Forgot password
+        </a>
+      </Form.Item>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="">register now!</a>
+      </Form.Item>
         </Form>
       </Modal>
 
@@ -117,6 +138,10 @@ const Nav = (props) => {
                 </li>
               </>
             )}
+
+            {/* <li><a>{props.home}</a></li>
+            <li><a>{props.registerLostDocument}</a></li>
+            <li><a>{props.getUserAllLostDocument}</a></li> */}
           </ul>
         </div>
       </div>

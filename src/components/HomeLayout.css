@@ -111,7 +111,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 4px;
 }
-button {
+.button {
   width: 220px;
   background-color: #646060;
   padding: 8px;
@@ -120,7 +120,18 @@ button {
   box-shadow: 3px 4px 5px black;
   margin-left: 25%;
 }
-button:hover {
+.button:hover {
   background-color: green;
 }
-
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}
