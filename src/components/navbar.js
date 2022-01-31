@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
-import { Modal, Form, Input, Button } from "antd";
+import { Modal, Form, Input, Button, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
 import { PhoneOutlined, LockOutlined } from "@ant-design/icons";
 
@@ -16,14 +16,17 @@ const Nav = (props) => {
     <>
       <Modal
         visible={visible}
-        width="30%"
+        width="25%"
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
       >
-        <h3>
-          <center>Signin Form</center>
-        </h3>
-        <Form onFinish={onFinish}>
+        <h2>
+          <center><b>Signin Form</b></center>
+        </h2><br/>
+        <Form   name="normal_login" className="login-form"
+      initialValues={{
+        remember: true,
+      }} onFinish={onFinish}>
           <Form.Item name="phone" rules={[{ required: "true", type: "email" }]}>
             <Input
               prefix={<PhoneOutlined className="site-form-item-icon" />}
@@ -37,9 +40,21 @@ const Nav = (props) => {
           placeholder="Password"
         />
           </Form.Item>
-          <Button htmlType="submit" onClick={() => {}}>
-            Login
-          </Button>
+          <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <a className="login-form-forgot" href="">
+          Forgot password
+        </a>
+      </Form.Item>
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="">register now!</a>
+      </Form.Item>
         </Form>
       </Modal>
       <div className="navbar">

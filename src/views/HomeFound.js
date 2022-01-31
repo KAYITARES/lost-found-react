@@ -17,7 +17,7 @@ const HomeFounder = () => {
       <div className="text">
      <h1>POLICE DOCUMENT FOUNDER</h1>
      <p>Now your can click on Register button  to fill  The Document Found!!! </p>
-     <button>Register</button>
+     <button className="button">Register</button>
       </div>
 
     </HomeLayout>
