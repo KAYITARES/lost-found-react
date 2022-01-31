@@ -4,17 +4,6 @@ import 'antd/dist/antd.css';
 import logo from "../assets/img/logo.png";
 
 
-//const Header=()=>{
-    // 
-    
-
-    // 
-    // 
-    // return(
-    //     
-    //    
-            
-
 const Header=()=>{
   
     return(
