@@ -20,8 +20,8 @@ const Header=()=>{
             </div>
             <div className='main-nav-right'>
                 <ul>
-                    <li> <a>ABOUT-US</a></li>
-                    <li><a> <a>CONTACT-US</a></a></li>
+                    <li> <a href="#" className='header-nav-link'>ABOUT-US</a></li>
+                    <li><a a href="#" className="header-nav-link"> CONTACT-US</a></li>
                    <li><div id="google_translate_element"></div></li> 
                 </ul>
                
