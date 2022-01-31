@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./HomeLayout.css";
 import { Modal, Form, Input, Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { PhoneOutlined, LockOutlined } from "@ant-design/icons";
 
 const Nav = (props) => {
   const [visible, setVisible] = useState(false);
@@ -15,25 +16,26 @@ const Nav = (props) => {
     <>
       <Modal
         visible={visible}
-        width="40%"
+        width="30%"
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
       >
-        <h1>Signin Form</h1>
+        <h3>
+          <center>Signin Form</center>
+        </h3>
         <Form onFinish={onFinish}>
-          <Form.Item
-            label="email"
-            name="email"
-            rules={[{ required: "true", type: "email" }]}
-          >
-            <Input type="email" />
+          <Form.Item name="phone" rules={[{ required: "true", type: "email" }]}>
+            <Input
+              prefix={<PhoneOutlined className="site-form-item-icon" />}
+              placeholder="Phone Number"
+            />
           </Form.Item>
-          <Form.Item
-            label="password"
-            name="password"
-            rules={[{ required: true }]}
-          >
-            <Input type="password" />
+          <Form.Item name="password" rules={[{ required: true }]}>
+            <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
           </Form.Item>
           <Button htmlType="submit" onClick={() => {}}>
             Login
@@ -76,6 +78,10 @@ const Nav = (props) => {
                 </li>
               </>
             )}
+
+            {/* <li><a>{props.home}</a></li>
+            <li><a>{props.registerLostDocument}</a></li>
+            <li><a>{props.getUserAllLostDocument}</a></li> */}
           </ul>
         </div>
       </div>
