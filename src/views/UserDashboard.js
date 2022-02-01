@@ -4,15 +4,16 @@ import { useNavigate } from "react-router-dom";
 import 'antd/dist/antd.css';
 import HomeLayout from '../components/HomeLayout'
 import Nav from '../components/navbar'
-import { Modal, Form, Input, Button, Checkbox,Select} from "antd";
+import { Modal, Form, Input, Button, Checkbox,Select, Upload} from "antd";
 
 import logo from '../assets/img/logo.png'
-import { PhoneOutlined, LockOutlined,UserOutlined } from "@ant-design/icons";
+import { PhoneOutlined, LockOutlined,UserOutlined,UploadOutlined } from "@ant-design/icons";
 
 
 // import {UserOutlined} from "@ant-design/icons";
 
 const { Search } = Input;
+const { TextArea } = Input;
 const { Option } = Select;
 const onSearch = value => console.log(value);
 
@@ -26,32 +27,38 @@ const onFinish = (values) => {
 const navigate = useNavigate();
     return(
         <>
-        <Modal
+        <Modal 
           visible={visible}
-          width="50%"
+          width="35%"
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
           footer={null}
         >
+           
             <a href="/">
                   <img src={logo} style={{width:"200px",marginBottom:"20px"}}/>
   
-                  </a>
-          <h2>
+                  </a><br/>
+                  <center>
+          <h2 style={{marginBottom:"20px",letterSpacing:"2px", fontFamily:"serif",fontWeight:"bold",fontSize:"28px"}}>
            <b> <UserOutlined className="site-form-item-icon" style={{padding:"5px",color:"skyblue"}} />LOST DOCUMENT</b>
           </h2>
+         
           <Form   name="normal_login" className="login-form"
         initialValues={{
           remember: true,
         }} onFinish={onFinish}>
             <Form.Item 
+           
             label="Type of The Document"
-            name="" 
-            rules={[{ required: "true", type: "text" }]}>
+            name=" DocumaTypeId" 
+            rules={[{ required: "true" }]}>
               <Select
+              
     showSearch
-    style={{ width: 200 }}
-    placeholder="Search to Select"
+    style={{ width:250,marginLeft:"50px"}}
+    
+    placeholder="Select Document Type"
     optionFilterProp="children"
     filterOption={(input, option) =>
       option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -59,38 +66,63 @@ const navigate = useNavigate();
     filterSort={(optionA, optionB) =>
       optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
     }
+   
   >
-    <Option value="1">Not Identified</Option>
-    <Option value="2">Closed</Option>
-    <Option value="3">Communicated</Option>
-    <Option value="4">Identified</Option>
-    <Option value="5">Resolved</Option>
-    <Option value="6">Cancelled</Option>
+    <Option value="1">ID</Option>
+    <Option value="2">Degree</Option>
+    <Option value="3">Driving Licence</Option>
+    <Option value="4">Insurance Card</Option>
+    
   </Select>
             </Form.Item>
-            <Form.Item name="password" rules={[{ required: true }]}>
-              <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
-          />
-            </Form.Item>
-            <Form.Item>
-          <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Form.Item 
+            label="Enter Document Number"
+            name="IDofthedocument" 
+            rules={[{ required: true }]}>
+            <Input
+         
+          type="number"
+          placeholder="Document Number"
+          style={{ width:250,marginLeft:"50px"}}
+          prefix={<UserOutlined className="site-form-item-icon" />}
+        />
           </Form.Item>
-  
-          <a className="login-form-forgot" href="">
-            Forgot password
-          </a>
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <a href="#"  >register now!</a>
-        </Form.Item>
+          <Form.Item 
+            label="Picture of Document"
+            name="Picturesofdocs" 
+            rules={[{ required: true }]}>
+             
+             
+              
+            <Upload>
+            
+        
+        <Button icon={<UploadOutlined />} style={{ width:250,marginLeft:"50px"}}>Upload Image</Button>
+      
+          </Upload>
+          </Form.Item>
+          <Form.Item 
+            label="Description"
+            name="description" 
+            rules={[{ required: true }]}>
+            <TextArea rows={3} 
+         
+          
+          placeholder="Description....."
+          style={{ width:250,marginLeft:"50px"}}
+         
+        />
+          </Form.Item>
+        
+          <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Register
+        </Button>
+      
+      </Form.Item>
+        
           </Form>
+          </center>
         </Modal>
         <div>
              <HomeLayout>
