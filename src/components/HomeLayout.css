@@ -140,3 +140,8 @@ h1,.text-userName{
   width: 100%;
   
 }
+.ant-form-item-label label{
+  font-size: 16px;
+  font-weight: bold;
+
+}

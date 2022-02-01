@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
 
-import { Modal, Form, Input,Upload, Button } from "antd";
-import {UploadOutlined} from '@ant-design/icons'
+import { Modal, Form, Input,Upload, Button,Checkbox  } from "antd";
+import {UploadOutlined} from '@ant-design/icons';
 
-import { Modal, Form, Input, Button, Checkbox } from "antd";
+
 
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/img/logo.png'
