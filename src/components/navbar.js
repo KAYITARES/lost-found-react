@@ -17,7 +17,7 @@ const Nav = (props) => {
     localStorage.setItem("userLogedIn", true);
     navigate("/user");
     localStorage.setItem("registerFoundDoc",true)
-    navigate("/founder")
+    navigate("/founder/allDocument")
    
    
   };
