@@ -10,6 +10,7 @@ const Index =()=>{
             <Route exact path="/" element={<Home/>}></Route>
             <Route exact path="/founder" element={<HomeFounder/>}></Route>
             <Route exact path="/user" element={<UserDashboard/>}></Route>
+            
         </Routes>
     )
 }
