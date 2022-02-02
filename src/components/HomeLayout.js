@@ -5,11 +5,9 @@ import Nav from './navbar';
 const HomeLayout=({children})=>{
     return(
         <div className='home-container'>
-            
-           
             <div style={{minHeight:"100vh"}}>
-            <Header/>
            
+            <Header/>
                 {children}
             </div>
 

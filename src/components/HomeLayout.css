@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+.home-container{
   background: linear-gradient(
       to right bottom,
       rgba(16, 16, 16, 50%),
@@ -88,7 +88,7 @@ li #google_translate_element {
 }
 .text {
   color: #fff;
-  margin-top: 10%;
+  margin-top: 13%;
   margin-left: 30%;
 }
 
@@ -141,7 +141,7 @@ h1,.text-userName{
   
 }
 .ant-form-item-label label{
-  font-size: 16px;
+  /* font-size: 16px; */
   font-weight: bold;
 
 }
