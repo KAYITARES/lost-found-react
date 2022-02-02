@@ -22,7 +22,7 @@ const UserDashboard=()=>{
 const onFinish = (values) => {
   console.log(values);
   localStorage.setItem("userLogedIn", true);
-  navigate("/user");
+  navigate("/user/allDocument");
 };
 const navigate = useNavigate();
     return(
@@ -40,8 +40,8 @@ const navigate = useNavigate();
   
                   </a><br/>
                   <center>
-          <h2 style={{marginBottom:"20px",letterSpacing:"2px", fontFamily:"serif",fontWeight:"bold",fontSize:"28px"}}>
-           <b> <UserOutlined className="site-form-item-icon" style={{padding:"5px",color:"skyblue"}} />LOST DOCUMENT</b>
+          <h2 style={{marginBottom:"15px",letterSpacing:"2px", fontFamily:"serif",fontWeight:"bold",fontSize:"28px"}}>
+           <b> <UserOutlined className="site-form-item-icon" style={{color:"skyblue"}} />LOST DOCUMENT</b>
           </h2>
          
           <Form   name="normal_login" className="login-form"
@@ -90,7 +90,7 @@ const navigate = useNavigate();
           <Form.Item 
             label="Picture of Document"
             name="Picturesofdocs" 
-            rules={[{ required: true }]}>
+            >
              
              
               
@@ -132,7 +132,7 @@ const navigate = useNavigate();
           <ul>
               <li><a href="/">HOME</a></li>
               <li><a href="#"  onClick={() => setVisible(true)}>REGISTER LOST DOCUMENT</a></li>
-              <li><a>ALL DOCUMENT</a></li>
+              <li><a href="/user/allDocument" >ALL DOCUMENT</a></li>
               {/* <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} /> */}
               </ul>
               </div>
