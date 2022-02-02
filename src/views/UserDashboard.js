@@ -51,7 +51,7 @@ const navigate = useNavigate();
             <Form.Item 
            
             label="Type of The Document"
-            name=" DocumaTypeId" 
+            name="DocumaTypeId" 
             rules={[{ required: "true" }]}>
               <Select
               
