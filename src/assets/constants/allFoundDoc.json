@@ -8,7 +8,7 @@
         "DocumaTypeId": "University's Degree",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     },
     {
         "picture": [
@@ -18,7 +18,7 @@
         "DocumaTypeId": "Driving license",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     },
     {
         "picture": [
@@ -28,7 +28,7 @@
         "DocumaTypeId": "IDentity Document",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "Approved"
+        "status": "found"
     },
     {
         "picture": [
@@ -37,7 +37,7 @@
         "DocumaTypeId": "Insurance Card",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     },
     {
         "picture": [
@@ -48,7 +48,7 @@
         "DocumaTypeId": "University's Degree",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     },
     {
         "picture": [
@@ -58,7 +58,7 @@
         "DocumaTypeId": "Driving license",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     },
     {
         "picture": [
@@ -68,7 +68,7 @@
         "DocumaTypeId": "IDentity Document",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "Approved"
+        "status": "found"
     },
     {
         "picture": [
@@ -77,6 +77,6 @@
         "DocumaTypeId": "Insurance Card",
         "IDofthedocument": "2020189475750NC",
         "description": "uehru uehv uehv  uhfurh nv h huebhve wuhbi uhjfnv r buebhiurhbiuerhbiuer",
-        "status": "pending"
+        "status": "found"
     }
 ]
