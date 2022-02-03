@@ -101,6 +101,8 @@ li #google_translate_element {
   color:white;
 }
 
+
+.text  {
 .text,.texto  {
   /* width: 600px; */
   font-size: 18px;
@@ -153,6 +155,9 @@ h1,.text-userName{
 .ant-form-item-label label{
   /* font-size: 16px; */
   font-weight: bold;
+
+
+}
 
 }
 
@@ -208,3 +213,4 @@ h1,.text-userName{
   margin-top:20px;
  
 }
+
