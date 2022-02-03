@@ -10,6 +10,7 @@ const { TextArea } = Input;
 const { Option } = Select;
 
 const Nav = (props) => {
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const[registerFoundVisible,registerFoundsetVisible]=useState(false);
   const onFinish = (values) => {
@@ -21,7 +22,6 @@ const Nav = (props) => {
    
    
   };
-  const navigate = useNavigate();
   return (
     <>
       <Modal
@@ -42,7 +42,7 @@ const Nav = (props) => {
       initialValues={{
         remember: true,
       }} onFinish={onFinish}>
-          <Form.Item name="phone" rules={[{ required: "true", type: "tel" }]}>
+          <Form.Item name="phone" rules={[{ required: "true", }]}>
             <Input
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Phone Number"
@@ -176,7 +176,7 @@ const Nav = (props) => {
             {!props.signIn ? (
               <>
                 <li>
-                  <a>{props.Home}</a>
+                  <a href="/">{props.Home}</a>
                 </li>
                 <li>
                   <a href="#" onClick={() =>registerFoundsetVisible (true)} >{props.registerFoundDocument}</a>
@@ -188,13 +188,13 @@ const Nav = (props) => {
                   <a href="/founder/allLostDocument">{props.allLostDocument}</a>
                 </li>
                 <li>
-                  <a>{props.allApprovedDocument}</a>
+                  <a href="/founder/allApprovedDocument">{props.allApprovedDocument}</a>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <a>{props.home}</a>
+                  <a hrf="/">{props.home}</a>
                 </li>
                 <li>
                   <a href="#" onClick={() => setVisible(true)}>
