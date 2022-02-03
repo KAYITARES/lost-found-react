@@ -182,7 +182,7 @@ const Nav = (props) => {
                   <a href="#" onClick={() =>registerFoundsetVisible (true)} >{props.registerFoundDocument}</a>
                 </li>
                 <li>
-                  <a>{props.allFoundDocument}</a>
+                  <a href="/founder/allDocument">{props.allFoundDocument}</a>
                 </li>
                 <li>
                   <a>{props.allLostDocument}</a>
