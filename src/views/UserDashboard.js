@@ -51,7 +51,11 @@ const navigate = useNavigate();
             <Form.Item 
            
             label="Type of The Document"
+
+            name=" DocumaTypeId" 
+
             name="DocumaTypeId" 
+
             rules={[{ required: "true" }]}>
               <Select
               
@@ -143,6 +147,15 @@ const navigate = useNavigate();
      <p>Now your can click on Register button  register your Lost Document!!! </p>
      <button className="button" htmlType="submit" onClick={() => setVisible(true)}>Register</button>
       </div>  
+
+
+
+
+
+
+
+
+
 
              </HomeLayout>
         </div>

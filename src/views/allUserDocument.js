@@ -1,3 +1,16 @@
+
+import React from "react";
+import  HomeLayout from "../components/HomeLayout"
+
+const AllUserDoc=()=>{
+    return(
+<HomeLayout>
+
+</HomeLayout>
+    )
+}
+export default AllUserDoc;
+
 import React from 'react';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
@@ -71,3 +84,4 @@ const AllUserDoc=()=>{
     )
 }
 export default AllUserDoc;
+
