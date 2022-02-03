@@ -4,7 +4,9 @@ import Home from '../views/Home';
 import HomeFounder from '../views/HomeFound';
 import UserDashboard from '../views/UserDashboard';
 import AllUserDoc from '../views/allUserDocument';
-import AllFounderDoc from '../views/AllUserFounder'
+import AllFounderDoc from '../views/AllUserFounder';
+import AllLostDocument from '../views/AllLostDocument';
+import AllApprovedDocument from '../views/AllApprovedDocument'
 
 
 const Index =()=>{
@@ -15,6 +17,9 @@ const Index =()=>{
             <Route exact path="/user" element={<UserDashboard/>}></Route>
             <Route exact path="/user/allDocument" element={<AllUserDoc/>}></Route>
             <Route exact path="/founder/allDocument" element={<AllFounderDoc/>}></Route>
+            <Route exact path="/founder/allLostDocument" element={<AllLostDocument/>}></Route>
+            <Route exact path="/founder/allApprovedDocument" element={<AllApprovedDocument/>}></Route>
+            
          
         </Routes>
     )
