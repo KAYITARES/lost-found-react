@@ -1,22 +1,9 @@
-
-import React from "react";
-import  HomeLayout from "../components/HomeLayout"
-
-const AllUserDoc=()=>{
-    return(
-<HomeLayout>
-
-</HomeLayout>
-    )
-}
-export default AllUserDoc;
-
 import React from 'react';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import DetailsLayout from "../components/DetailsLayout"
-import AllUserData from "../assets/constants/allUserDoc.json";
-import UserCard from '../components/UserCard'
+import AllFounderData from "../assets/constants/allFoundDoc.json"
+import FounderCard from '../components/FounderCard'
 const { Search } = Input;
 
 const suffix = (
@@ -29,13 +16,13 @@ const suffix = (
 );
 
 const onSearch = value => console.log(value);
-const AllUserDoc=()=>{
+const AllFounderDoc=()=>{
     return(
         <div className='userAllDoc'>
             <DetailsLayout>
                 <center>
                 <div className='texto'>
-                  <p>You can find all information about your lost document now!!! </p>
+                  <p>You can find all information about All Found Document now!!! </p>
                 </div>
                 
                 <div className='userSearch'>
@@ -63,7 +50,7 @@ const AllUserDoc=()=>{
                 <div className='userLost-container'>
                
                     {
-                        AllUserData.map((data)=>(<UserCard user={data}/>))
+                        AllFounderData.map((data)=>(<FounderCard user={data}/>))
                     }
 
                 </div>
@@ -83,5 +70,4 @@ const AllUserDoc=()=>{
        
     )
 }
-export default AllUserDoc;
-
+export default AllFounderDoc;
