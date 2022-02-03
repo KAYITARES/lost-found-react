@@ -4,12 +4,11 @@ import Home from '../views/Home';
 import HomeFounder from '../views/HomeFound';
 import UserDashboard from '../views/UserDashboard';
 import AllUserDoc from '../views/allUserDocument';
-import AllFounderDoc from '../views/AllUserFounder';
-import AllLostDocument from '../views/AllLostDocument';
-import AllApprovedDocument from '../views/AllApprovedDocument'
+
 import DashLayout from "../components/dashboardLayout";
 import AllUsers from '../views/DASHBOARD/allusers';
 import Document from '../views/DASHBOARD/document';
+import AllFounderDoc from '../views/AllUserFounder'
 
 
 
@@ -29,18 +28,17 @@ const Index =()=>{
             <Route exact path="/user/allDocument" element={<AllUserDoc/>}></Route>
             <Route exact path="/founder/allDocument" element={<AllFounderDoc/>}></Route>
 
-            <Route exact path="/founder/allLostDocument" element={<AllLostDocument/>}></Route>
-            <Route exact path="/founder/allApprovedDocument" element={<AllApprovedDocument/>}></Route>
-
+        </Routes>
+        
             <DashLayout>
             <Routes>
             <Route  exact path='/dash/allusers' element={<AllUsers></AllUsers>} ></Route>
                 <Route  exact path='/dash/document' element={<Document></Document>} ></Route>  
-                   </Routes>
-          
-            </DashLayout>
-     </Routes>
+               
+            </Routes>
+            </DashLayout>):(<></>)
+   
    </>
     )
 }
-export default Index;
+export default Index
