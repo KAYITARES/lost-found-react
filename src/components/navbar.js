@@ -487,7 +487,7 @@ const Nav = (props) => {
                   <a href="/founder/allDocument">{props.allFoundDocument}</a>
                 </li>
                 <li>
-                  <a href="/founder/allLostDocument">{props.allLostDocument}</a>
+                  <a>{props.allLostDocument}</a>
                 </li>
                 <li>
                   <a>{props.allApprovedDocument}</a>
