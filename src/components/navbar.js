@@ -1,331 +1,311 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
-import { Modal, Form, Input, Button} from "antd";
+import { Modal, Form, Input, Upload, Button, Checkbox, Select, } from "antd";
+import { UploadOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
-import ReactDOM from 'react-dom';
+import logo from '../assets/img/logo.png'
+import { PhoneOutlined, LockOutlined, UserOutlined,EyeInvisibleOutlined, MessageOutlined } from "@ant-design/icons";
 
 
 
-const Nav = (props) => {
-  const [visible, setVisible] = useState(false);
-  const [visibleSignUp, setVisibleSignUp] = useState(false);
-  const [form] = Form.useForm();
-  const onFinish = (values) => {
-    console.log(values);
-    localStorage.setItem("userLogedIn", true);
-    localStorage.setItem("userSignUp", true);
+  const { TextArea } = Input;
+  const { Option } = Select;
 
-    navigate("/user");
-  };
-  const navigate = useNavigate();
-  return (
-    <>
-      <Modal
-        visible={visible}
-        width="40%"
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-      >
-        <h1>Signin Form</h1>
-        <Form onFinish={onFinish}>
-          <Form.Item
-            label="email"
-            name="email"
-            rules={[{ required: "true", type: "email" }]}
-          >
-            <Input type="email" />
-          </Form.Item>
-          <Form.Item
-            label="password"
-            name="password"
-            rules={[{ required: true }]}
-          >
-            <Input type="password" />
-          </Form.Item>
-          <Button htmlType="submit" onClick={() => { }}>
-            Login
-          </Button>
-        </Form>
+  const Nav = (props) => {
+    const [visible, setVisible] = useState(false);
+    const [registerFoundVisible, registerFoundsetVisible] = useState(false);
+    const [visibleSignUp, setVisibleSignUp] = useState(false);
 
-      </Modal>
+    const onFinish = (values) => {
+      console.log(values);
+      localStorage.setItem("userLogedIn", true);
+      localStorage.setItem("userSignUp", true);
+
+      navigate("/user");
+      localStorage.setItem("registerFoundDoc", true)
+      navigate("/founder")
 
 
-      <Modal
-         visible={visibleSignUp}
-         width="40%"
-         onOk={() => setVisibleSignUp(false)}
-         onCancel={() => setVisibleSignUp(false)}
-      >
- <h1>SignUp Form</h1>
-        <Form onFinish={onFinish}>
-
-        <Form.Item
-            label="FirstName"
-            name="FirstName"
-            rules={[{ required: "true", type: "FirstName" }]}
-          >
-            <Input type="FirstName" />
-            </Form.Item>
-
-
-            <Form.Item
-            label="SecondName"
-            name="SecondName"
-            rules={[{ required: "true", type: "SecondName" }]}
-          >
-            <Input type="SecondName" />
-            </Form.Item>
-
-            <Form.Item
-            label="Phone"
-            name="Phone"
-            rules={[{ required: "true", type: "phone" }]}
-          >
-            <Input type="Phone" />
-            </Form.Item>
-
-
-
-      <Form.Item
-            label="email"
-            name="email"
-            rules={[{ required: "true", type: "email" }]}
-          >
-            <Input type="email" />
-          </Form.Item>
-          <Form.Item
-            label="password"
-            name="password"
-            rules={[{ required: true }]}
-          >
-            <Input type="password" />
-          </Form.Item>
-          <Button htmlType="submit" onClick={() => {}}>
-            sign up
-          </Button>
-        </Form>
-
-
-
-      </Modal>
-
-{/* 
-      <Modal
-
-        visible={visibleSignUp}
-        width="40%"
-        onOk={() => setVisibleSignUp(false)}
-        onCancel={() => setVisibleSignUp(false)}
-
-      >
-
-
-        const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-          <Select
-            style={{
-              width: 70,
-            }}
-          >
-            <Option value="250">+250</Option>
-            <Option value="250">+250</Option>
-          </Select>
-        </Form.Item>
-        );
-        const suffixSelector = (
-        <Form.Item name="suffix" noStyle>
-          <Select
-            style={{
-              width: 70,
-            }}
-          >
-
-          </Select>
-        </Form.Item>
-        );
-
-
-        ;
-        return (
-        <Form
-          {...formItemLayout}
-          form={form}
-          name="register"
-          onFinish={onFinish}
-
+    };
+    const navigate = useNavigate();
+    return (
+      <>
+        <Modal
+          visible={visible}
+          width="25%"
+          onOk={() => setVisible(false)}
+          onCancel={() => setVisible(false)}
+          footer={null}
         >
-          <Form.Item
-            name="email"
-            label="E-mail"
-            rules={[
-              {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
-              },
-              {
-                required: true,
-                message: 'Please input your E-mail!',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
+          <a href="/">
+            <img src={logo} style={{ width: "120px", marginBottom: "20px" }} />
 
-          <Form.Item
-            name="password"
+          </a>
+          <h2>
+            <b> <UserOutlined className="site-form-item-icon" style={{ padding: "5px", color: "skyblue" }} />Signin Form</b>
+          </h2>
+          <Form name="normal_login" className="login-form"
+            initialValues={{
+              remember: true,
+            }} onFinish={onFinish}>
+            <Form.Item name="phone" rules={[{ required: "true", type: "tel" }]}>
+              <Input
+                prefix={<PhoneOutlined className="site-form-item-icon" />}
+                placeholder="Phone Number"
+              />
+            </Form.Item>
+            <Form.Item name="password" rules={[{ required: true }]}>
+              <Input
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Item>
+            <Button htmlType="submit" onClick={() => { }}>
+              Login
+            </Button>
+            <Form.Item>
+              <Form.Item name="remember" valuePropName="checked" noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
+
+              <a className="login-form-forgot" href="">
+                Forgot password
+              </a>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button">
+                Log in
+              </Button>
+              Or <a href="">register now!</a>
+            </Form.Item>
+          </Form>
+
+        </Modal>
+
+
+
+        <Modal
+          visible={visibleSignUp}
+          width="30%"
+          onOk={() => setVisibleSignUp(false)}
+          onCancel={() => setVisibleSignUp(false)}
+        >
+           <a href="/">
+            <img src={logo} style={{ width: "200px", marginBottom: "20px" }} />
+
+          </a><br />
+          <h2>
+            <b> <UserOutlined className="site-form-item-icon" style={{ padding: "5px", color: "skyblue" }} />SignUp Form</b>
+          </h2>
+          
+          <Form onFinish={onFinish}>
+
+            <Form.Item
+              label="FirstName"
+              name="FirstName"
+              rules={[{ required: "true", type: "FirstName" }]}
+            >
+               <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="FirstName"
+              />
+            </Form.Item>
+
+
+            <Form.Item
+              label="SecondName"
+              name="SecondName"
+              rules={[{ required: "true", type: "SecondName" }]}
+            >
+              <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="SecondName"
+              />
+            </Form.Item>
+
+            <Form.Item label="phone"
+            name="phone" rules={[{ required: "true", type: "tel" }]}>
+              <Input
+                prefix={<PhoneOutlined className="site-form-item-icon" />}
+                placeholder="Phone Number"
+              />
+            </Form.Item>
+
+
+
+            <Form.Item
+              label="email"
+              name="email"
+              rules={[{ required: "true", type: "email" }]}
+            >
+               <Input
+              prefix={<MessageOutlined className="site-form-item-icon" />}
+              placeholder="email"
+              />
+            </Form.Item>
+            <Form.Item 
             label="Password"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your password!',
-              },
-            ]}
-            hasFeedback
-          >
-            <Input.Password />
-          </Form.Item>
+            name="password" rules={[{ required: true }]}>
+              <Input
+                prefix={<EyeInvisibleOutlined  className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Item>
+            <Button type="primary" htmlType="submit" onClick={() => { }}>
+              sign up
+            </Button>
+          </Form>
 
-          <Form.Item
-            name="confirm"
-            label="Confirm Password"
-            dependencies={['password']}
-            hasFeedback
-            rules={[
-              {
-                required: true,
-                message: 'Please confirm your password!',
-              },
-              ({ getFieldValue }) => ({
-                validator(_, value) {
-                  if (!value || getFieldValue('password') === value) {
-                    return Promise.resolve();
+
+
+        </Modal>
+
+
+        <Modal
+          visible={registerFoundVisible}
+          width="35%"
+          onOk={() => registerFoundsetVisible(false)}
+          onCancel={() => registerFoundsetVisible(false)}
+          footer={null}
+        >
+
+          <a href="/">
+            <img src={logo} style={{ width: "200px", marginBottom: "20px" }} />
+
+          </a><br />
+          <center>
+            <h2 style={{ marginBottom: "15px", letterSpacing: "2px", fontFamily: "serif", fontWeight: "bold", fontSize: "28px" }}>
+              <b> <UserOutlined className="site-form-item-icon" style={{ color: "skyblue" }} />FOUND DOCUMENT</b>
+            </h2>
+
+            <Form name="normal_login" className="login-form"
+              initialValues={{
+                remember: true,
+              }} onFinish={onFinish}>
+              <Form.Item
+
+                label="Type of The Document"
+                name=" DocumaTypeId"
+                rules={[{ required: "true" }]}>
+                <Select
+
+                  showSearch
+                  style={{ width: 250, marginLeft: "50px" }}
+
+                  placeholder="Select Document Type"
+                  optionFilterProp="children"
+                  filterOption={(input, option) =>
+                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                  }
+                  filterSort={(optionA, optionB) =>
+                    optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
                   }
 
-                  return Promise.reject(new Error('The two passwords that you entered do not match!'));
-                },
-              }),
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
+                >
+                  <Option value="1">ID</Option>
+                  <Option value="2">Degree</Option>
+                  <Option value="3">Driving Licence</Option>
+                  <Option value="4">Insurance Card</Option>
 
-          <Form.Item
-            name="username"
-            label="Nickname"
-            tooltip="What do you want others to call you?"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your nickname!',
-                whitespace: true,
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
+                </Select>
+              </Form.Item>
+              <Form.Item
+                label="Enter Document Number"
+                name="IDofthedocument"
+                rules={[{ required: true }]}>
+                <Input
 
-
-          <Form.Item
-            name="phone"
-            label="Phone Number"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your phone number!',
-              },
-            ]}
-          >
-            <Input
-              addonBefore={prefixSelector}
-              style={{
-                width: '100%',
-              }}
-            />
-          </Form.Item>
+                  type="number"
+                  placeholder="Document Number"
+                  style={{ width: 250, marginLeft: "50px" }}
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                />
+              </Form.Item>
+              <Form.Item
+                label="Picture of Document"
+                name="Picturesofdocs"
+                rules={[{ required: true }]}>
 
 
 
-
-          <Form.Item
-            name="gender"
-            label="Gender"
-            rules={[
-              {
-                required: true,
-                message: 'Please select gender!',
-              },
-            ]}
-          >
-            <Select placeholder="select your gender">
-              <Option value="male">Male</Option>
-              <Option value="female">Female</Option>
-              <Option value="other">Other</Option>
-            </Select>
-          </Form.Item>
-
-         
-               
-
-         
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Register
-            </Button>
-          </Form.Item>
-        </Form>
-        );
+                <Upload>
 
 
-        {/* ReactDOM.render(<RegistrationForm />, document.getElementById('container')); */}
+                  <Button icon={<UploadOutlined />} style={{ width: 250, marginLeft: "50px" }}>Upload Image</Button>
+
+                </Upload>
+              </Form.Item>
+              <Form.Item
+                label="Description"
+                name="description"
+                rules={[{ required: true }]}>
+                <TextArea rows={3}
 
 
+                  placeholder="Description....."
+                  style={{ width: 250, marginLeft: "50px" }}
 
+                />
+              </Form.Item>
 
+              <Form.Item>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                  Register
+                </Button>
 
+              </Form.Item>
 
+            </Form>
+          </center>
+        </Modal>
 
-      {/* </Modal>  */}
-      <div className="navbar">
-        <div className="navbar-link">
-          <ul>
-            {!props.signIn ? (
-              <>
-                <li>
-                  <a>{props.Home}</a>
-                </li>
-                <li>
-                  <a>{props.registerFoundDocument}</a>
-                </li>
-                <li>
-                  <a>{props.allFoundDocument}</a>
-                </li>
-                <li>
-                  <a>{props.allLostDocument}</a>
-                </li>
-                <li>
-                  <a>{props.allApprovedDocument}</a>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <a>{props.home}</a>
-                </li>
-                <li>
-                  <a href="#" onClick={() => setVisible(true)}>
-                    {props.signIn}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick={() => setVisibleSignUp(true)}>
-                    {props.signUp}</a>
-                </li>
-              </>
-            )}
-          </ul>
+        <div className="navbar">
+          <div className="navbar-link">
+            <ul>
+              {!props.signIn ? (
+                <>
+                  <li>
+                    <a>{props.Home}</a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={() => registerFoundsetVisible(true)} >{props.registerFoundDocument}</a>
+                  </li>
+                  <li>
+                    <a>{props.allFoundDocument}</a>
+                  </li>
+                  <li>
+                    <a>{props.allLostDocument}</a>
+                  </li>
+                  <li>
+                    <a>{props.allApprovedDocument}</a>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <a>{props.home}</a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={() => setVisible(true)}>
+                      {props.signIn}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" onClick={() => setVisibleSignUp(true)}>
+                      {props.signUp}</a>
+                  </li>
+                </>
+              )}
+
+              {/* <li><a>{props.home}</a></li>
+            <li><a>{props.registerLostDocument}</a></li>
+            <li><a>{props.getUserAllLostDocument}</a></li> */}
+            </ul>
+          </div>
         </div>
-      </div>
-    </>
-  );
-};
-export default Nav;
+      </>
+    );
+  };
+  export default Nav;
