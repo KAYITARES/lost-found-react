@@ -24,7 +24,7 @@ return(
     <img src={user.picture[0]}/>
     <h4>{user.DocumaTypeId}</h4>
     <p>{user.IDofthedocument}</p>
-    <h5>{user.status}</h5> 
+    <h5 style={user.status ==="pending" ?{color:"blue"}:{color:"green"} }>{user.status}</h5> 
     <a href="#" onClick={()=>handleClickVisible()}>Read more....</a>
 
     </div>

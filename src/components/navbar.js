@@ -169,14 +169,16 @@ import { Modal, Form, Input,Upload, Button,Checkbox , Select,} from "antd";
 import {UploadOutlined} from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/img/logo.png'
-import { PhoneOutlined, LockOutlined,UserOutlined } from "@ant-design/icons";
+import { PhoneOutlined, LockOutlined,UserOutlined,MessageOutlined,EyeInvisibleOutlined } from "@ant-design/icons";
 
 const { TextArea } = Input;
 const { Option } = Select;
 
 const Nav = (props) => {
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const[registerFoundVisible,registerFoundsetVisible]=useState(false);
+  const [visibleSignUp, setVisibleSignUp] = useState(false);
   const onFinish = (values) => {
     console.log(values);
     localStorage.setItem("userLogedIn", true);
@@ -186,7 +188,6 @@ const Nav = (props) => {
    
    
   };
-  const navigate = useNavigate();
   return (
     <>
       <Modal
@@ -207,7 +208,7 @@ const Nav = (props) => {
       initialValues={{
         remember: true,
       }} onFinish={onFinish}>
-          <Form.Item name="phone" rules={[{ required: "true", type: "tel" }]}>
+          <Form.Item name="phone" rules={[{ required: "true", }]}>
             <Input
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Phone Number"
@@ -472,13 +473,89 @@ const Nav = (props) => {
           </Form>
           </center>
         </Modal>
+        <Modal
+          visible={visibleSignUp}
+          width="30%"
+          onOk={() => setVisibleSignUp(false)}
+          onCancel={() => setVisibleSignUp(false)}
+        >
+           <a href="/">
+            <img src={logo} style={{ width: "200px", marginBottom: "20px" }} />
+
+          </a><br />
+          <h2>
+            <b> <UserOutlined className="site-form-item-icon" style={{ padding: "5px", color: "skyblue" }} />SignUp Form</b>
+          </h2>
+          
+          <Form onFinish={onFinish}>
+
+            <Form.Item
+              label="FirstName"
+              name="FirstName"
+              rules={[{ required: "true", type: "FirstName" }]}
+            >
+               <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="FirstName"
+              />
+            </Form.Item>
+
+
+            <Form.Item
+              label="SecondName"
+              name="SecondName"
+              rules={[{ required: "true", type: "SecondName" }]}
+            >
+              <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="SecondName"
+              />
+            </Form.Item>
+
+            <Form.Item label="phone"
+            name="phone" rules={[{ required: "true", type: "tel" }]}>
+              <Input
+                prefix={<PhoneOutlined className="site-form-item-icon" />}
+                placeholder="Phone Number"
+              />
+            </Form.Item>
+
+
+
+            <Form.Item
+              label="email"
+              name="email"
+              rules={[{ required: "true", type: "email" }]}
+            >
+               <Input
+              prefix={<MessageOutlined className="site-form-item-icon" />}
+              placeholder="email"
+              />
+            </Form.Item>
+            <Form.Item 
+            label="Password"
+            name="password" rules={[{ required: true }]}>
+              <Input
+                prefix={<EyeInvisibleOutlined  className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Item>
+            <Button type="primary" htmlType="submit" onClick={() => { }}>
+              sign up
+            </Button>
+          </Form>
+
+
+
+        </Modal>
       <div className="navbar">
         <div className="navbar-link">
           <ul>
             {!props.signIn ? (
               <>
                 <li>
-                  <a>{props.Home}</a>
+                  <a href="/">{props.Home}</a>
                 </li>
                 <li>
                   <a href="#" onClick={() =>registerFoundsetVisible (true)} >{props.registerFoundDocument}</a>
@@ -490,13 +567,13 @@ const Nav = (props) => {
                   <a href="/founder/allLostDocument">{props.allLostDocument}</a>
                 </li>
                 <li>
-                  <a>{props.allApprovedDocument}</a>
+                  <a href="/founder/allApprovedDocument">{props.allApprovedDocument}</a>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <a>{props.home}</a>
+                  <a hrf="/">{props.home}</a>
                 </li>
                 <li>
                   <a href="#" onClick={() => setVisible(true)}>
@@ -504,7 +581,7 @@ const Nav = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a>{props.signUp}</a>
+                  <a onClick={() =>setVisibleSignUp (true)}>{props.signUp}</a>
                 </li>
               </>
             )}
