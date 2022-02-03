@@ -2,8 +2,8 @@ import React from 'react';
 import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import DetailsLayout from "../components/DetailsLayout"
-import AllFounderData from "../assets/constants/allFoundDoc.json"
-import FounderCard from '../components/FounderCard'
+import AllApprovedData from "../assets/constants/allApprovedDoc.json";
+import  AllApprovedDoc from '../components/AllApprovedDoc'
 const { Search } = Input;
 
 const suffix = (
@@ -16,13 +16,13 @@ const suffix = (
 );
 
 const onSearch = value => console.log(value);
-const AllFounderDoc=()=>{
+const AllApprovedDocument=()=>{
     return(
         <div className='userAllDoc'>
             <DetailsLayout>
                 <center>
                 <div className='texto'>
-                  <p>You can find all information about All User's Found Document now!!! </p>
+                  <p>You can find all information about all Users Approved document now!!! </p>
                 </div>
                 
                 <div className='userSearch'>
@@ -50,7 +50,7 @@ const AllFounderDoc=()=>{
                 <div className='userLost-container'>
                
                     {
-                        AllFounderData.map((data)=>(<FounderCard user={data}/>))
+                       AllApprovedData.map((data)=>(<AllApprovedDoc user={data}/>))
                     }
 
                 </div>
@@ -70,4 +70,4 @@ const AllFounderDoc=()=>{
        
     )
 }
-export default AllFounderDoc;
+export default AllApprovedDocument;

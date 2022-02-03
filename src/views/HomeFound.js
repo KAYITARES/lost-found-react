@@ -4,7 +4,9 @@ import HomeLayout from "../components/HomeLayout";
 import Nav from "../components/navbar";
 
 const HomeFounder = () => {
+  ``
   return (
+
     
     <HomeLayout>
       <Nav className="home-founder-nav"
