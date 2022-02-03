@@ -22,7 +22,7 @@ const AllFounderDoc=()=>{
             <DetailsLayout>
                 <center>
                 <div className='texto'>
-                  <p>You can find all information about All User's Found Document now!!! </p>
+                  <p>You can find all information about All Found Document now!!! </p>
                 </div>
                 
                 <div className='userSearch'>
