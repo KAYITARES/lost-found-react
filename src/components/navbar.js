@@ -1,27 +1,42 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
-import { Modal, Form, Input,Upload, Button,Checkbox , Select,} from "antd";
-import {UploadOutlined} from '@ant-design/icons';
+import {
+  Modal,
+  Form,
+  Input,
+  Upload,
+  Button,
+  Checkbox,
+  Menu,
+  Dropdown,
+  Select,
+} from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  LockOutlined,
+  UserOutlined,
+  PhoneOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import logo from '../assets/img/logo.png'
-import { PhoneOutlined, LockOutlined,UserOutlined,MessageOutlined,EyeInvisibleOutlined } from "@ant-design/icons";
+import logo from "../assets/img/logo.png";
+import SignUp from "../components/Signup";
+import RegisterFounder from "../components/registerFounder";
 
-const { TextArea } = Input;
-const { Option } = Select;
+// import signin from "./sign"
+// import { useNavigate } from "react-router";
 
 const Nav = (props) => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
-  const[registerFoundVisible,registerFoundsetVisible]=useState(false);
+  const [registerFoundVisible, registerFoundsetVisible] = useState(false);
   const [visibleSignUp, setVisibleSignUp] = useState(false);
   const onFinish = (values) => {
     console.log(values);
     localStorage.setItem("userLogedIn", true);
     navigate("/user");
-    localStorage.setItem("registerFoundDoc",true)
-    navigate("/founder/allDocument")
-   
-   
+    localStorage.setItem("registerFoundDoc", true);
+    // navigate("/founder/allDocument")
   };
   return (
     <>
@@ -32,18 +47,28 @@ const Nav = (props) => {
         onCancel={() => setVisible(false)}
         footer={null}
       >
-          <a href="/">
-                <img src={logo} style={{width:"120px",marginBottom:"20px"}}/>
-
-                </a>
+        <a href="/">
+          <img src={logo} style={{ width: "120px", marginBottom: "20px" }} />
+        </a>
         <h2>
-         <b> <UserOutlined className="site-form-item-icon" style={{padding:"5px",color:"skyblue"}} />Signin Form</b>
+          <b>
+            {" "}
+            <UserOutlined
+              className="site-form-item-icon"
+              style={{ padding: "5px", color: "skyblue" }}
+            />
+            Signin Form
+          </b>
         </h2>
-        <Form   name="normal_login" className="login-form"
-      initialValues={{
-        remember: true,
-      }} onFinish={onFinish}>
-          <Form.Item name="phone" rules={[{ required: "true", }]}>
+        <Form
+          name="normal_login"
+          className="login-form"
+          initialValues={{
+            remember: true,
+          }}
+          onFinish={onFinish}
+        >
+          <Form.Item name="phone" rules={[{ required: "true" }]}>
             <Input
               prefix={<PhoneOutlined className="site-form-item-icon" />}
               placeholder="Phone Number"
@@ -51,202 +76,55 @@ const Nav = (props) => {
           </Form.Item>
           <Form.Item name="password" rules={[{ required: true }]}>
             <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="Password"
+            />
           </Form.Item>
           <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+            <Form.Item name="remember" valuePropName="checked" noStyle>
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
 
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
-        </Button>
-        Or <a href="">register now!</a>
-      </Form.Item>
+            <a className="login-form-forgot" href="">
+              Forgot password
+            </a>
+          </Form.Item>
+          <Form.Item>
+            <Button
+              type="primary"
+              href="/user"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Log in
+            </Button>
+            Or{" "}
+            <a href="#" onClick={() => setVisibleSignUp(true)}>
+              register now!
+            </a>
+          </Form.Item>
         </Form>
       </Modal>
 
-        <Modal 
-          visible={registerFoundVisible}
-          width="35%"
-          onOk={() => registerFoundsetVisible(false)}
-          onCancel={() => registerFoundsetVisible(false)}
-          footer={null}
-        >
-           
-            <a href="/">
-                  <img src={logo} style={{width:"200px",marginBottom:"20px"}}/>
-  
-                  </a><br/>
-                  <center>
-          <h2 style={{marginBottom:"15px",letterSpacing:"2px", fontFamily:"serif",fontWeight:"bold",fontSize:"28px"}}>
-           <b> <UserOutlined className="site-form-item-icon" style={{color:"skyblue"}} />FOUND DOCUMENT</b>
-          </h2>
-         
-          <Form   name="normal_login" className="login-form"
-        initialValues={{
-          remember: true,
-        }} onFinish={onFinish}>
-            <Form.Item 
-           
-            label="Type of The Document"
-            name=" DocumaTypeId" 
-            rules={[{ required: "true" }]}>
-              <Select
-              
-    showSearch
-    style={{ width:250,marginLeft:"50px"}}
-    
-    placeholder="Select Document Type"
-    optionFilterProp="children"
-    filterOption={(input, option) =>
-      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-    }
-    filterSort={(optionA, optionB) =>
-      optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
-    }
-   
-  >
-    <Option value="1">ID</Option>
-    <Option value="2">Degree</Option>
-    <Option value="3">Driving Licence</Option>
-    <Option value="4">Insurance Card</Option>
-    
-  </Select>
-            </Form.Item>
-            <Form.Item 
-            label="Enter Document Number"
-            name="IDofthedocument" 
-            rules={[{ required: true }]}>
-            <Input
-         
-          type="number"
-          placeholder="Document Number"
-          style={{ width:250,marginLeft:"50px"}}
-          prefix={<UserOutlined className="site-form-item-icon" />}
-        />
-          </Form.Item>
-          <Form.Item 
-            label="Picture of Document"
-            name="Picturesofdocs" 
-            rules={[{ required: true }]}>
-             
-             
-              
-            <Upload>
-            
-        
-        <Button icon={<UploadOutlined />} style={{ width:250,marginLeft:"50px"}}>Upload Image</Button>
-      
-          </Upload>
-          </Form.Item>
-          <Form.Item 
-            label="Description"
-            name="description" 
-            rules={[{ required: true }]}>
-            <TextArea rows={3} 
-         
-          
-          placeholder="Description....."
-          style={{ width:250,marginLeft:"50px"}}
-         
-        />
-          </Form.Item>
-        
-          <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
-          Register
-        </Button>
-      
-      </Form.Item>
-        
-          </Form>
-          </center>
-        </Modal>
-        <Modal
-          visible={visibleSignUp}
-          width="30%"
-          onOk={() => setVisibleSignUp(false)}
-          onCancel={() => setVisibleSignUp(false)}
-        >
-           <a href="/">
-            <img src={logo} style={{ width: "200px", marginBottom: "20px" }} />
-
-          </a><br />
-          <h2>
-            <b> <UserOutlined className="site-form-item-icon" style={{ padding: "5px", color: "skyblue" }} />SignUp Form</b>
-          </h2>
-          
-          <Form onFinish={onFinish}>
-
-            <Form.Item
-              label="FirstName"
-              name="FirstName"
-              rules={[{ required: "true", type: "FirstName" }]}
-            >
-               <Input
-              prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="FirstName"
-              />
-            </Form.Item>
-
-
-            <Form.Item
-              label="SecondName"
-              name="SecondName"
-              rules={[{ required: "true", type: "SecondName" }]}
-            >
-              <Input
-              prefix={<UserOutlined className="site-form-item-icon" />}
-              placeholder="SecondName"
-              />
-            </Form.Item>
-
-            <Form.Item label="phone"
-            name="phone" rules={[{ required: "true", type: "tel" }]}>
-              <Input
-                prefix={<PhoneOutlined className="site-form-item-icon" />}
-                placeholder="Phone Number"
-              />
-            </Form.Item>
-
-
-
-            <Form.Item
-              label="email"
-              name="email"
-              rules={[{ required: "true", type: "email" }]}
-            >
-               <Input
-              prefix={<MessageOutlined className="site-form-item-icon" />}
-              placeholder="email"
-              />
-            </Form.Item>
-            <Form.Item 
-            label="Password"
-            name="password" rules={[{ required: true }]}>
-              <Input
-                prefix={<EyeInvisibleOutlined  className="site-form-item-icon" />}
-                type="password"
-                placeholder="Password"
-              />
-            </Form.Item>
-            <Button type="primary" htmlType="submit" onClick={() => { }}>
-              sign up
-            </Button>
-          </Form>
-
-
-
-        </Modal>
+      <Modal
+        visible={registerFoundVisible}
+        width="35%"
+        onOk={() => registerFoundsetVisible(false)}
+        onCancel={() => registerFoundsetVisible(false)}
+        footer={null}
+      >
+        <RegisterFounder />
+      </Modal>
+      <Modal
+        visible={visibleSignUp}
+        width="30%"
+        onOk={() => setVisibleSignUp(false)}
+        onCancel={() => setVisibleSignUp(false)}
+        footer={null}
+      >
+        <SignUp />
+      </Modal>
       <div className="navbar">
         <div className="navbar-link">
           <ul>
@@ -256,22 +134,51 @@ const Nav = (props) => {
                   <a href="/">{props.Home}</a>
                 </li>
                 <li>
-                  <a href="#" onClick={() =>registerFoundsetVisible (true)} >{props.registerFoundDocument}</a>
+                  <a href="#" onClick={() => registerFoundsetVisible(true)}>
+                    {props.registerFoundDocument}
+                  </a>
                 </li>
                 <li>
-                  <a href="/founder/allDocument">{props.allFoundDocument}</a>
-                </li>
-                <li>
-                  <a href="/founder/allLostDocument">{props.allLostDocument}</a>
-                </li>
-                <li>
-                  <a href="/founder/allApprovedDocument">{props.allApprovedDocument}</a>
+                  <a>
+                    <Dropdown
+                      placement="bottomLeft"
+                      className="ant-dropdown-link"
+                      overlay={
+                        <Menu>
+                          <Menu.Item key="0">
+                            <a href="/founder/allDocument">
+                              {props.allFoundDocument}
+                            </a>
+                          </Menu.Item>
+                          <Menu.Item key="1">
+                            <a href="/founder/allLostDocument">
+                              {props.allLostDocument}
+                            </a>
+                          </Menu.Item>
+                          <Menu.Item key="1">
+                            <a href="/founder/allApprovedDocument">
+                              {props.allApprovedDocument}
+                            </a>
+                          </Menu.Item>
+                        </Menu>
+                      }
+                      trigger={["hover"]}
+                    >
+                      <a
+                        className="ant-dropdown-link"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        DOCUMENTS
+                        <DownOutlined />
+                      </a>
+                    </Dropdown>
+                  </a>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <a hrf="/">{props.home}</a>
+                  <a href="/">{props.home}</a>
                 </li>
                 <li>
                   <a href="#" onClick={() => setVisible(true)}>
@@ -279,7 +186,7 @@ const Nav = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a onClick={() =>setVisibleSignUp (true)}>{props.signUp}</a>
+                  <a onClick={() => setVisibleSignUp(true)}>{props.signUp}</a>
                 </li>
               </>
             )}
