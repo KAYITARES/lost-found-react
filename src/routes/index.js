@@ -7,6 +7,8 @@ import AllUserDoc from "../views/allUserDocument";
 import AllFounderDoc from "../views/AllUserFounder";
 import AllLostDocument from "../views/AllLostDocument";
 import AllApprovedDocument from "../views/AllApprovedDocument";
+import ContactUs from "../views/contact";
+import AboutUs from "../views/aboutUs";
 
 import AllUsers from "../components/TableGetAllUser";
 
@@ -34,6 +36,8 @@ const Index = () => {
       ></Route>
 
       <Route exact path="/allUsers" element={<AllUsers />}></Route>
+      <Route exact path="/contactus" element={<ContactUs />}></Route>
+      <Route exact path="/aboutus" element={<AboutUs />}></Route>
     </Routes>
   );
 };

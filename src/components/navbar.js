@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
+import LostApis from "../services/lostFoundApis";
 import {
   Modal,
   Form,
@@ -10,6 +11,7 @@ import {
   Menu,
   Dropdown,
   Select,
+  notification,
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import {
@@ -33,9 +35,28 @@ const Nav = (props) => {
   const [visibleSignUp, setVisibleSignUp] = useState(false);
   const onFinish = (values) => {
     console.log(values);
-    localStorage.setItem("userLogedIn", true);
-    navigate("/user");
-    localStorage.setItem("registerFoundDoc", true);
+    LostApis.signinAccount(values).then((res) => {
+      if (!res) {
+        return notification.error({ message: "server is down " });
+      }
+      if (res.status === 200) {
+        console.log(res.data.data);
+        if (res.data.data.role === "userLost") {
+          localStorage.setItem("userLogedIn", true);
+          navigate("/user");
+        } else if (res.data.role === "userFounder") {
+          localStorage.setItem("userLogedIn", true);
+          navigate("/founder");
+        }
+      } else {
+        return notification.error({
+          message: !res.data.error ? res.data.message : res.data.error,
+        });
+      }
+    });
+    // localStorage.setItem("userLogedIn", true);
+    // navigate("/user");
+    // localStorage.setItem("registerFoundDoc", true);
     // navigate("/founder/allDocument")
   };
   return (
@@ -93,14 +114,19 @@ const Nav = (props) => {
           <Form.Item>
             <Button
               type="primary"
-              href="/user"
               htmlType="submit"
               className="login-form-button"
             >
               Log in
             </Button>
             Or{" "}
-            <a href="#" onClick={() => setVisibleSignUp(true)}>
+            <a
+              href="#"
+              onClick={() => {
+                setVisibleSignUp(true);
+                setVisible(false);
+              }}
+            >
               register now!
             </a>
           </Form.Item>
