@@ -7,6 +7,15 @@ import AllUserDoc from '../views/allUserDocument';
 import AllFounderDoc from '../views/AllUserFounder';
 import AllLostDocument from '../views/AllLostDocument';
 import AllApprovedDocument from '../views/AllApprovedDocument'
+import AllUsers from '../views/dashboard/allusers';
+// import Document from '../views/dashboard/document';
+// import AllFounderDoc from '../views/AllUserFounder'
+import UserFounders from '../views/dashboard/createUserFounders';
+import FoundDocuments from '../views/dashboard/AllDocuments';
+// import { Dashboard } from '../views/dashboard/Dashboard';
+import DashboardInfos from "../views/dashboard/Dashboard"
+// import ScaleDashInfos from "../views/dashboard/Dashboard"
+
 
 
 const Index =()=>{
@@ -19,8 +28,11 @@ const Index =()=>{
             <Route exact path="/founder/allDocument" element={<AllFounderDoc/>}></Route>
             <Route exact path="/founder/allLostDocument" element={<AllLostDocument/>}></Route>
             <Route exact path="/founder/allApprovedDocument" element={<AllApprovedDocument/>}></Route>
-            
-         
+            <Route exact path="/allusers" element={<AllUsers/>}></Route>
+            <Route exact path="/CreateUserFounders" element={<UserFounders/>}></Route>
+            <Route exact path="/AllDocuments" element={<FoundDocuments/>}></Route>
+            <Route exact path="/Dashboard" element={<DashboardInfos/>}></Route>
+            {/* <Route exact path="/ScaleDashInfos" element ={<ScaleDashInfos/>}></Route> */}
         </Routes>
     )
 }
