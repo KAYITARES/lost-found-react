@@ -10,6 +10,9 @@ import AllApprovedDocument from "../views/AllApprovedDocument";
 import UserFounders from '../views/dashboard/createUserFounders';
 import FoundDocuments from '../views/dashboard/AllDocuments';
 import DashboardInfos from "../views/dashboard/Dashboard"
+import ContactUs from "../views/contact";
+import AboutUs from "../views/aboutUs";
+
 import AllUsers from "../components/TableGetAllUser";
 
 
@@ -37,9 +40,14 @@ const Index = () => {
       ></Route>
 
       <Route exact path="/allUsers" element={<AllUsers />}></Route>
+<<<<<<< HEAD
       <Route exact path="/CreateUserFounders" element={<UserFounders/>}></Route>
             <Route exact path="/AllDocuments" element={<FoundDocuments/>}></Route>
             <Route exact path="/Dashboard" element={<DashboardInfos/>}></Route>
+=======
+      <Route exact path="/contactus" element={<ContactUs />}></Route>
+      <Route exact path="/aboutus" element={<AboutUs />}></Route>
+>>>>>>> add aboutUs
     </Routes>
   );
 };
