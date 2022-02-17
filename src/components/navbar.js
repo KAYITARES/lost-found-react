@@ -217,7 +217,25 @@ const Nav = (props) => {
                 placeholder="Phone Number"
               />
             </Form.Item>
-
+            {/* <Form.Item
+        name="gender"
+        label="Gender"
+        rules={[
+          {
+            required: true,
+          },
+        ]}
+      >
+        <Select
+          placeholder="Select a option and change input text above"
+          onChange={onGenderChange}
+          allowClear
+        >
+          <Option value="male">male</Option>
+          <Option value="female">female</Option>
+          <Option value="other">other</Option>
+        </Select>
+      </Form.Item> */}
 
 
             <Form.Item
