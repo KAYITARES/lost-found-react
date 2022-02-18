@@ -7,12 +7,9 @@ import AllUserDoc from "../views/allUserDocument";
 import AllFounderDoc from "../views/AllUserFounder";
 import AllLostDocument from "../views/AllLostDocument";
 import AllApprovedDocument from "../views/AllApprovedDocument";
-<<<<<<< HEAD
 import UserFounders from "../views/dashboard/createUserFounders";
 import FoundDocuments from "../views/dashboard/AllDocuments";
 import DashboardInfos from "../views/dashboard/Dashboard";
-=======
->>>>>>> 7386b93f6f62b1a6c0004230ab84b45b489a82c3
 import ContactUs from "../views/contact";
 import AboutUs from "../views/aboutUs";
 
@@ -42,7 +39,6 @@ const Index = () => {
       ></Route>
 
       <Route exact path="/allUsers" element={<AllUsers />}></Route>
-<<<<<<< HEAD
       <Route
         exact
         path="/CreateUserFounders"
@@ -50,8 +46,6 @@ const Index = () => {
       ></Route>
       <Route exact path="/AllDocuments" element={<FoundDocuments />}></Route>
       <Route exact path="/Dashboard" element={<DashboardInfos />}></Route>
-=======
->>>>>>> 7386b93f6f62b1a6c0004230ab84b45b489a82c3
       <Route exact path="/contactus" element={<ContactUs />}></Route>
       <Route exact path="/aboutus" element={<AboutUs />}></Route>
     </Routes>
