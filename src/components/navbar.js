@@ -5,7 +5,6 @@ import {
   Modal,
   Form,
   Input,
-  Upload,
   Button,
   Checkbox,
   Menu,
