@@ -365,6 +365,7 @@ li #google_translate_element {
   text-transform: uppercase;
   line-height: 0;
 }
+
 .card__details h5 {
   width: 80%;
   text-align: center;
@@ -731,6 +732,7 @@ li #google_translate_element {
   display: flex;
   color: white;
 }
+
 .footer-data h5,
 .footer-data .logo-home {
   width: 100%;
