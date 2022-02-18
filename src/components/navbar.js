@@ -9,10 +9,9 @@ import {
   Checkbox,
   Menu,
   Dropdown,
-  Select,
   notification,
 } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+
 import {
   DownOutlined,
   LockOutlined,
@@ -46,6 +45,9 @@ const Nav = (props) => {
         } else if (res.data.role === "userFounder") {
           localStorage.setItem("userLogedIn", true);
           navigate("/founder");
+        } else if (res.data.role === "admin") {
+          localStorage.setItem("userLogedIn", true);
+          navigate("/Dashboard");
         }
       } else {
         return notification.error({
