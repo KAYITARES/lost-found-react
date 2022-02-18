@@ -30,7 +30,7 @@ const SingleUserDoc = ({ user }) => {
         </p>
         <div className="single-user-btn">
           <button className="bton-update">Update</button>
-          <button className="bton-delete">Delete</button>
+          {/* <button className="bton-delete">Delete</button> */}
         </div>
       </div>
     </div>

@@ -15,17 +15,14 @@ const Header = () => {
         </div>
 
         <div className="main-nav-right">
-          {/* <UserOutlined style={{background:"gray",color:"white",padding:"5px",fontSize:"20px",borderRadius:"50%",fontWeight:"bold",float:"right"}}/> */}
           <ul>
             <li>
-              {" "}
               <a href="/aboutus" className="header-nav-link">
                 ABOUT-US
               </a>
             </li>
             <li>
-              <a a href="/contactus" className="header-nav-link">
-                {" "}
+              <a href="/contactus" className="header-nav-link">
                 CONTACT-US
               </a>
             </li>

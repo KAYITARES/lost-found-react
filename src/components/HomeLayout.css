@@ -36,6 +36,7 @@ body {
   background: #fff;
   padding: 20px;
   display: flex;
+  width: 100%;
 }
 .logo-img {
   margin-left: 10%;
