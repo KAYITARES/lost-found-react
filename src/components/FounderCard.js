@@ -1,49 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
-import './HomeLayout.css';
-import SingleFounderDoc from '../components/SingleFounderDoc'
-
-
+import "./HomeLayout.css";
+import SingleFounderDoc from "../components/SingleFounderDoc";
+// import UserCard from "./UserCard";
 
 const UserFounder = ({ user }) => {
-    const [visible, setVisible] = useState(false);
-    const handleClickVisible = () => {
-        setVisible(true);
-    }
-    const closeVisible = () => {
-        setVisible(false);
-    }
-    return (
-        <>
+  const [visible, setVisible] = useState(false);
+  const handleClickVisible = () => {
+    setVisible(true);
+  };
+  const closeVisible = () => {
+    setVisible(false);
+  };
+  return (
+    <>
+      {/* <UserCard /> */}
 
+      <div className="userCard">
+        <div class="card__side card__side--front ">
+          <div className="card__picture card__picture-1">
+            <img src={user.picture[0]} />
+          </div>
+          <div className="card__heading">
+            <p>{user.IDofthedocument}</p>
+          </div>
+          <div className="card__details">
+            <h4>{user.DocumaTypeId}</h4>
+            <h5
+              style={
+                user.status === "pending"
+                  ? { color: "blue" }
+                  : { color: "green" }
+              }
+            >
+              {user.status}
+            </h5>
+          </div>
+        </div>
 
-            <div className='userCard'>
+        <div class="card__side card__side--back card__side--back-1">
+          <div class="card__cta">
+            <div className="card__name-box">
+              <p className="card__name-name">{user.DocumaTypeId}</p>
 
-
-                <img src={user.picture[0]} />
-                <h4>{user.DocumaTypeId}</h4>
-                <p>{user.IDofthedocument}</p>
-                <h5>{user.status}</h5>
-                <a href="#" onClick={() => handleClickVisible()}>Read more....</a>
-
+              <p className="card__name-id">{user.IDofthedocument}</p>
+              <p
+                className="card__name-status"
+                style={
+                  user.status === "pending"
+                    ? { color: "blue" }
+                    : { color: "green" }
+                }
+              >
+                {user.status}
+              </p>
             </div>
-            <Modal
-                visible={visible}
-                width="25%"
-                onOk={() => setVisible(false)}
-                onCancel={() => setVisible(false)}
-                footer={null}
+            <a
+              href="#"
+              className="btn btn-more"
+              onClick={() => handleClickVisible()}
+            >
+              Read more....
+            </a>
+          </div>
+        </div>
+      </div>
+      <Modal
+        visible={visible}
+        width="95%"
+        bodyStyle={{ height: 500 }}
+        onOk={() => setVisible(false)}
+        onCancel={() => setVisible(false)}
+        footer={null}
+        // DocumaTypeId={user.DocumaTypeId}
 
-                // DocumaTypeId={user.DocumaTypeId} 
-
-                onClose={() => closeVisible()}>
-                <SingleFounderDoc user={user} />
-
-            </Modal>
-
-
-        </>
-    );
-}
+        onClose={() => closeVisible()}
+      >
+        <SingleFounderDoc user={user} />
+      </Modal>
+    </>
+  );
+};
 export default UserFounder;
