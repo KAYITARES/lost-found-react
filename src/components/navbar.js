@@ -122,7 +122,6 @@ const Nav = (props) => {
             </Button>
             Or{" "}
             <a
-              href="#"
               onClick={() => {
                 setVisibleSignUp(true);
                 setVisible(false);
