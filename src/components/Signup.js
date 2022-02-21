@@ -32,9 +32,7 @@ const SignupForm = () => {
       }
     });
     localStorage.setItem("userLogedIn", true);
-    // navigate("/user");
-    localStorage.setItem("registerFoundDoc", true);
-    // navigate("/founder/allDocument")
+    navigate("/user");
   };
 
   return (
@@ -90,11 +88,7 @@ const SignupForm = () => {
           />
         </Form.Item>
         <Form.Item name="password" rules={[{ required: true }]}>
-          <Input
-            prefix={<EyeInvisibleOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Type Password"
-          />
+          <Input.Password type="password" placeholder="Type Password" />
         </Form.Item>
         <Button
           type="primary"

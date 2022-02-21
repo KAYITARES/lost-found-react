@@ -42,10 +42,10 @@ const Nav = (props) => {
         if (res.data.data.role === "userLost") {
           localStorage.setItem("userLogedIn", true);
           navigate("/user");
-        } else if (res.data.role === "userFounder") {
+        } else if (res.data.data.role === "userFound") {
           localStorage.setItem("userLogedIn", true);
           navigate("/founder");
-        } else if (res.data.role === "admin") {
+        } else if (res.data.data.role === "admin") {
           localStorage.setItem("userLogedIn", true);
           navigate("/Dashboard");
         }
