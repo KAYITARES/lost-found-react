@@ -7,6 +7,7 @@ import Nav from "../components/navbar";
 import Header from "../components/Header";
 import HomeLayout from "../components/HomeLayout";
 import DetailsLayout from "../components/DetailsLayout";
+import rebe from "../assets/img/rebe.jpeg";
 
 const AboutUs = () => {
   return (
@@ -86,6 +87,29 @@ const AboutUs = () => {
               <img src={clemence} className="story__image" />
               <figcaption className="story__caption">
                 Umutoni Clemence
+              </figcaption>
+            </figure>
+            <div className="story__text">
+              <h3 className="heading-tertiary u-margin-bottom-small">
+                Found Document like you never found before
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam
+                officiis reprehenderit provident velit distinctio itaque harum.
+                Quaerat repudiandae animi quam enim. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit. Nam officiis reprehenderit
+                provident velit distinctio itaque harum. Quaerat repudiandae
+                animi quam enim.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="story">
+            <figure className="story__shape">
+              <img src={rebe} className="story__image" />
+              <figcaption className="story__caption">
+                Rebecca Nzamuye
               </figcaption>
             </figure>
             <div className="story__text">
