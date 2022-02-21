@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import "./HomeLayout.css";
-import { Modal, Form, Input, Upload, Button, Checkbox, Select } from "antd";
+import {
+  Modal,
+  Form,
+  Input,
+  Upload,
+  Button,
+  Checkbox,
+  Select,
+  notification,
+} from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import SignUp from "../components/Signup";
+import LostFoundService from "../services/lostFoundApis";
 import {
   PhoneOutlined,
   LockOutlined,
@@ -20,10 +30,25 @@ const RegisterFounder = () => {
   const navigate = useNavigate();
   const onFinish = (values) => {
     console.log(values);
-    localStorage.setItem("userLogedIn", true);
-    navigate("/user");
-    localStorage.setItem("registerFoundDoc", true);
-    // navigate("/founder/allDocument")
+    LostFoundService.registerDocument(values).then((res) => {
+      if (!res) {
+        return notification.error({
+          message: "server is down",
+        });
+      }
+      if (res.status === 200) {
+        return notification.success({
+          message: "Your document has been registered",
+        });
+      } else {
+        return notification.error({
+          message: !res.data.error ? res.data.message : res.data.error,
+        });
+      }
+    });
+
+    // localStorage.setItem("registerFoundDoc", true);
+    // navigate("/founder/allDocument");
   };
   return (
     <>

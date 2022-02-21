@@ -14,7 +14,7 @@ import ContactUs from "../views/contact";
 import AboutUs from "../views/aboutUs";
 
 import AllUsers from "../components/TableGetAllUser";
-
+import AllDocuments from "../components/TableGetAllDocument";
 const Index = () => {
   return (
     <Routes>
@@ -44,7 +44,7 @@ const Index = () => {
         path="/CreateUserFounders"
         element={<UserFounders />}
       ></Route>
-      <Route exact path="/AllDocuments" element={<FoundDocuments />}></Route>
+      <Route exact path="/AllDocuments" element={<AllDocuments />}></Route>
       <Route exact path="/Dashboard" element={<DashboardInfos />}></Route>
       <Route exact path="/contactus" element={<ContactUs />}></Route>
       <Route exact path="/aboutus" element={<AboutUs />}></Route>
